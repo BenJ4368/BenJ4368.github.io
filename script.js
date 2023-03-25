@@ -9,78 +9,70 @@ for (var j = 0; j < paths.length; j++) {
 
 for (var i = 0; i < paths.length; i++) {
 	let elementLength = paths[i].getTotalLength();
+	let writingTime = (elementLength/totalLength) + 0;
+	let animDelay = 0.5;
 	switch (i) {
 		case 0: //Barre du B
-			paths[i].style.animation = "draw "+ (elementLength*6)/totalLength + "s linear forwards 0.8s";
+			paths[i].style.animation = "draw "+ (writingTime * 6) + "s linear forwards " + (animDelay + 0) + "s";
 			break;
-		case 1: // Boucle du B
+		default:
 			prevElemLength += paths[i - 1].getTotalLength();
-			paths[i].style.animation = "draw " + (elementLength*2)/totalLength + "s linear forwards " + ((prevElemLength*4)/totalLength+1) + "s";
+			animDelay = ((prevElemLength*4)/totalLength);
+			console.info('jepasse');
+		case 1: // Boucle du B
+			paths[i].style.animation = "draw " + (writingTime * 2) + "s linear forwards " + (animDelay + 0.4) + "s";
 			console.log(`Précédent path[${i - 1}]; length: ${prevElemLength}`)
 			break;
 		case 2: //en
-			prevElemLength += paths[i - 1].getTotalLength();
-			paths[i].style.animation = "draw " + (elementLength*4)/totalLength + "s linear forwards " + ((prevElemLength*4)/totalLength+1) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 4) + "s linear forwards " + (animDelay + 1) + "s";
 			console.log(`Précédent path[${i - 1}]; length: ${prevElemLength}`)
 			break;
 		case 3: //j
-			prevElemLength += paths[i - 1].getTotalLength();
-			paths[i].style.animation = "draw " + (elementLength)/totalLength + "s linear forwards " + ((prevElemLength*4)/totalLength+1.2) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 1) + "s linear forwards " + (animDelay + 1.4) + "s";
 			console.log(`Précédent path[${i - 1}]; length: ${prevElemLength}`)
 			break;
 		case 4: //am
-			prevElemLength += paths[i - 1].getTotalLength();
-			paths[i].style.animation = "draw " + (elementLength*10)/totalLength + "s linear forwards " + ((prevElemLength*4)/totalLength+0.8) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 10) + "s linear forwards " + (animDelay + 1.8) + "s";
 			console.log(`Précédent path[${i - 1}]; length: ${prevElemLength}`)
 			break;
 		case 5: // i
-			prevElemLength += paths[i - 1].getTotalLength();
-			paths[i].style.animation = "draw " + (elementLength*8)/totalLength + "s linear forwards " + ((prevElemLength*4)/totalLength+1.2) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 8) + "s linear forwards " + (animDelay + 2.6) + "s";
 			console.log(`Précédent path[${i - 1}]; length: ${prevElemLength}`)
 			break;
 		case 6: //n
-			prevElemLength += paths[i - 1].getTotalLength();
-			paths[i].style.animation = "draw " + (elementLength*8)/totalLength + "s linear forwards " + ((prevElemLength*4)/totalLength+1.4) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 8) + "s linear forwards " + (animDelay + 2.8) + "s";
 			console.log(`Précédent path[${i - 1}]; length: ${prevElemLength}`)
 			break;
 		case 7: // point du i
-			prevElemLength += paths[i - 1].getTotalLength();
-			paths[i].style.animation = "draw " + (elementLength*10)/totalLength + "s linear forwards " + ((prevElemLength*4)/totalLength+1.6) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 10) + "s linear forwards " + (animDelay + 2.4) + "s";
 			console.log(`Précédent path[${i - 1}]; length: ${prevElemLength}`)
 			break;
 		case 8: //G
-			prevElemLength += paths[i - 1].getTotalLength();
-			paths[i].style.animation = "draw " + (elementLength*2)/totalLength + "s linear forwards " + ((prevElemLength*4)/totalLength+2) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 2) + "s linear forwards " + (animDelay + 2.6) + "s";
 			console.log(`Précédent path[${i - 1}]; length: ${prevElemLength}`)
 			break;
 		case 9: //ae
-			prevElemLength += paths[i - 1].getTotalLength();
-			paths[i].style.animation = "draw " + (elementLength*6)/totalLength + "s linear forwards " + ((prevElemLength*4)/totalLength+2) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 6) + "s linear forwards " + (animDelay + 2.8) + "s";
 			console.log(`Précédent path[${i - 1}]; length: ${prevElemLength}`)
 			break;
 		case 10: //r
-			prevElemLength += paths[i - 1].getTotalLength();
-			paths[i].style.animation = "draw " + (elementLength*6)/totalLength + "s linear forwards " + ((prevElemLength*4)/totalLength+2.2) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 6) + "s linear forwards " + (animDelay + 3) + "s";
 			console.log(`Précédent path[${i - 1}]; length: ${prevElemLength}`)
 			break;
 		case 11: // pied du t
-			prevElemLength += paths[i - 1].getTotalLength();
-			paths[i].style.animation = "draw " + (elementLength*6)/totalLength + "s linear forwards " + ((prevElemLength*4)/totalLength+2.4) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 6) + "s linear forwards " + (animDelay + 3.2) + "s";
 			console.log(`Précédent path[${i - 1}]; length: ${prevElemLength}`)
 			break;
 		case 12: //ne
-			prevElemLength += paths[i - 1].getTotalLength();
-			paths[i].style.animation = "draw " + (elementLength*6)/totalLength + "s linear forwards " + ((prevElemLength*4)/totalLength+2.6) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 6) + "s linear forwards " + (animDelay + 3.4) + "s";
 			console.log(`Précédent path[${i - 1}]; length: ${prevElemLength}`)
 			break;
 		case 13: //r
-			prevElemLength += paths[i - 1].getTotalLength();
-			paths[i].style.animation = "draw " + (elementLength*6)/totalLength + "s linear forwards " + ((prevElemLength*4)/totalLength+2.8) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 6) + "s linear forwards " + (animDelay + 3.6) + "s";
 			console.log(`Précédent path[${i - 1}]; length: ${prevElemLength}`)
 			break;
 		case 14: //barre du t
-			prevElemLength += paths[i - 1].getTotalLength();
-			paths[i].style.animation = "draw " + (elementLength*4)/totalLength + "s linear forwards " + ((prevElemLength*4)/totalLength+3) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 4) + "s linear forwards " + (animDelay + 3.8) + "s";
 			console.log(`Précédent path[${i - 1}]; length: ${prevElemLength}`)
 			break;
 
