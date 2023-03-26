@@ -1,46 +1,60 @@
-
-
 body{
 	background-color: #EDF9FE;
 	margin: 0;
 	padding: 0;
 }
 
-/* Screen width > 768px */
-@media screen and (min-width: 768px) {
+
+/*////////////////*/
+/*//// MOBILE ////*/
+/*////////////////*/
+
+
+#signature{
+	width: 80vw;
+	height: auto;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-55%, -50%);
 }
 
-/*    767px > Screen width    */
-@media screen and (max-width: 767px) {
-
+#signature path{
+	stroke: #001C55;
+	stroke-width: 8;
+	stroke-dasharray: 0;
+	stroke-dashoffset: 0;
+	animation-fill-mode: forwards;
 }
 
-/*    480px > Screen width    */
-@media screen and (max-width: 480px) {
+@keyframes draw{
+	to {
+		stroke-dashoffset: 0%;
+	}
+}
+
+/*////////////////*/
+/*//// TABLET ////*/
+/*////////////////*/
+@media (min-width: 768px){
+	
+	#signature path{
+		stroke-width: 5;
+	}
+}
+
+
+/*////////////////*/
+/*////// PC //////*/
+/*////////////////*/
+@media (min-width: 1200px){
 
 	#signature{
-		width: 80vw;
-		height: auto;
-		position: absolute;
-		top: 40%;
-		left: 45%;
-		transform: translate(-50%, -50%);
+		width: 40vw;
+		top: 45%;
 	}
 	
-	/* Signature animation */
 	#signature path{
-		stroke: #001C55;
-		stroke-width: 8;
-		stroke-dasharray: 0;
-		stroke-dashoffset: 0;
-		animation-fill-mode: forwards;
+		stroke-width: 5;
 	}
-	
-	@keyframes draw{
-		to {
-			stroke-dashoffset: 0%;
-		}
-	}
-	/* End */
-
 }
