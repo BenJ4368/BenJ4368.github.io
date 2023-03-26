@@ -1,4 +1,4 @@
-var paths = document.getElementsByTagName("path");
+var paths = document.querySelectorAll('#signature path');
 var totalLength = 0;
 let prevElemLength = 0;
 
@@ -27,7 +27,7 @@ for (var i = 0; i < paths.length; i++) {
 		case 4: //am
 			paths[i].style.animation = "draw " + (writingTime * 10) + "s linear forwards " + (animDelay + 1.4) + "s";
 			break;
-		case 5: // i
+		case 5: //i
 			paths[i].style.animation = "draw " + (writingTime * 8) + "s linear forwards " + (animDelay + 2.1) + "s";
 			break;
 		case 6: //n
@@ -37,25 +37,17 @@ for (var i = 0; i < paths.length; i++) {
 			paths[i].style.animation = "draw " + (writingTime * 10) + "s linear forwards " + (animDelay + 2.7) + "s";
 			break;
 		case 8: //G
-			paths[i].style.animation = "draw " + (writingTime * 2) + "s linear forwards " + (animDelay + 3) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 1.5) + "s linear forwards " + (animDelay + 3) + "s";
 			break;
-		case 9: //ae
-			paths[i].style.animation = "draw " + (writingTime * 6) + "s linear forwards " + (animDelay + 3.5) + "s";
-			break;
-		case 10: //r
-			paths[i].style.animation = "draw " + (writingTime * 6) + "s linear forwards " + (animDelay + 4.2) + "s";
-			break;
-		case 11: // pied du t
-			paths[i].style.animation = "draw " + (writingTime * 6) + "s linear forwards " + (animDelay + 4.5) + "s";
-			break;
-		case 12: //ne
-			paths[i].style.animation = "draw " + (writingTime * 6) + "s linear forwards " + (animDelay + 4.8) + "s";
-			break;
-		case 13: //r
-			paths[i].style.animation = "draw " + (writingTime * 6) + "s linear forwards " + (animDelay + 5.2) + "s";
-			break;
-		case 14: //barre du t
-			paths[i].style.animation = "draw " + (writingTime * 3) + "s linear forwards " + (animDelay + 5.5) + "s";
+		case 9: //.
+			paths[i].style.animation = "draw " + (writingTime * 1) + "s linear forwards " + (animDelay + 3.6) + "s";
+			setTimeout(function() {
+				let signature = document.querySelector("#signature");
+					signature.style.width = "55vw";
+					signature.style.top = "8%";
+					signature.style.transition = "all 1.5s ease-in-out";
+					paths.style.strokew
+			  }, (animDelay + 4.3)*1000);
 			break;
 
 	}
