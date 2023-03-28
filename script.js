@@ -11,7 +11,7 @@ console.log(`\x1b[35m script.js:7	totalLength: ${totalLength}`)
 
 for (let i = 0; i < paths.length; i++) {
 	let elementLength = paths[i].getTotalLength();
-	let writingTime = (elementLength/totalLength) ;
+	let writingTime = (elementLength/totalLength);
 	let animDelay = 0.6;
 	switch (i) {
 		case 0: //Barre du B
@@ -46,29 +46,27 @@ for (let i = 0; i < paths.length; i++) {
 			setTimeout(function() {
 				let signature = document.querySelector("#signature");
 
+				for (let j = 0; j < paths.length; j++) {
+					paths[j].style.strokeWidth = "10";
+					paths[j].style.transition = "all 1s ease-in-out"
+				}
 				if (mediaPC.matches) {
-					for (let j = 0; j < paths.length; j++) {
-						paths[j].style.strokeWidth = "8";
-						paths[j].style.transition = "all 2s ease-in-out"
-					}
-					signature.style.width = "18vw";
-					signature.style.top = "80px";
-					signature.style.left = "250px";
-					signature.style.transition = "all 2s ease-in-out";
+					signature.style.width = "15%";
+					signature.style.top = "30px";
+					signature.style.left = "12%";
+					signature.style.transition = "all 1s ease-in-out";
 				}
 				else if (mediaTablet.matches) {
-					for (let j = 0; j < paths.length; j++) {
-						paths[j].style.strokeWidth = "8";
-						paths[j].style.transition = "all 2s ease-in-out"
-					}
-					signature.style.width = "45vw";
-					signature.style.top = "90px";
-					signature.style.transition = "all 2s ease-in-out";
+					signature.style.width = "35%";
+					signature.style.top = "40px";
+					signature.style.left = "25%";
+					signature.style.transition = "all 1s ease-in-out";
 				}
 				else { // Smartphone screens
-					signature.style.width = "50vw";
-					signature.style.top = "50px";
-					signature.style.transition = "all 2s ease-in-out";
+					signature.style.width = "45%";
+					signature.style.top = "20px";
+					signature.style.left = "30%";
+					signature.style.transition = "all 1s ease-in-out";
 				}
 			  }, (animDelay + 5)*1000);
 			break;
