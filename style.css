@@ -1,0 +1,89 @@
+/* Imports GoogleFont */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@300;600&display=swap');
+/*
+font-family: 'Montserrat';
+font-family: 'Oswald';
+*/
+
+/**{
+	border: solid red 1px;
+}*/
+
+
+body{
+	background-color: #EDF9FE;
+	position: relative;
+	margin: 0 auto;
+	padding: 0;
+	height: 100vh;
+	max-width: 1920px;
+	font-size: 100%;
+	color: #001C55;
+}
+
+p{
+	font-size: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-left: 30px;
+}
+
+
+/*////////////////*/
+/*//// MOBILE ////*/
+/*////////////////*/
+
+
+#signature{
+	height: fit-content;
+	width: 70%;
+	position: absolute;
+	top: 200px;
+	left: 50%;
+	transform: translate(-55%, 0);
+}
+
+#signature path{
+	stroke: #001C55;
+	stroke-width: 8;
+	stroke-dasharray: 0;
+	stroke-dashoffset: 0;
+	animation-fill-mode: forwards;
+}
+
+@keyframes draw{
+	to {
+		stroke-dashoffset: 0%;
+	}
+}
+
+
+/*////////////////*/
+/*//// TABLET ////*/
+/*////////////////*/
+@media (min-width: 768px){
+	
+	#signature{
+		width: 70%;
+		top: 350px;
+	}
+
+	#signature path{
+		stroke-width: 5;
+	}
+}
+
+
+/*////////////////*/
+/*////// PC //////*/
+/*////////////////*/
+@media (min-width: 1200px){
+
+	#signature{
+		width: 40%;
+		top: 300px;
+	}
+	
+	#signature path{
+		stroke-width: 5;
+	}
+}
