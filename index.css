@@ -1,0 +1,31 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.row {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 60px; /* Espacement entre les rangées */
+}
+
+.box {
+	width: 300px;
+	height: 300px;
+	background-color: #47a4b4;
+	margin: 0 30px; /* Espacement horizontal entre les carrés */
+}
