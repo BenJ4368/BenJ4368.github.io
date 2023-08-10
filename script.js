@@ -12,7 +12,11 @@ console.log(`\x1b[35m script.js:7	totalLength: ${totalLength}`)
 for (let i = 0; i < paths.length; i++) {
 	let elementLength = paths[i].getTotalLength();
 	let writingTime = (elementLength/totalLength);
+<<<<<<< HEAD
 	let animDelay = 1;
+=======
+	let animDelay = 0.3;
+>>>>>>> b9c5146c50ee79c96ad0933f39b854381dddf54c
 	switch (i) {
 		case 0: //Barre du B
 			paths[i].style.animation = "draw "+ (writingTime * 3) + "s linear forwards " + (animDelay + 0) + "s";
