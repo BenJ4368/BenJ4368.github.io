@@ -76,6 +76,7 @@ body{
 	#signature{
 		width: 40%;
 		top: 300px;
+		filter: drop-shadow(2px 2px 5px #251607);
 	}
 	
 	#signature path{
@@ -83,6 +84,7 @@ body{
 	}
 
 	.column {
+		opacity: 0;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -95,6 +97,7 @@ body{
 		border: solid #251607 3px;
 		box-sizing: border-box;
 		margin: 20px;
+		box-shadow: 2px 2px 5px #251607;
 	}
 	.brick.small {
 		height: 135px;

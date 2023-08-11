@@ -18,35 +18,36 @@ for (let i = 0; i < paths.length; i++) {
 			paths[i].style.animation = "draw "+ (writingTime * 3) + "s linear forwards " + (animDelay + 0) + "s";
 			break;
 		case 1: // Boucle du B
-			paths[i].style.animation = "draw " + (writingTime * 1.5) + "s linear forwards " + (animDelay + 0.4) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 1.5) + "s linear forwards " + (animDelay + 0.2) + "s";
 			break;
 		case 2: //en
-			paths[i].style.animation = "draw " + (writingTime * 4) + "s linear forwards " + (animDelay + 0.9) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 4) + "s linear forwards " + (animDelay + 0.7) + "s";
 			break;
 		case 3: //j
-			paths[i].style.animation = "draw " + (writingTime * 1) + "s linear forwards " + (animDelay + 1.4) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 1) + "s linear forwards " + (animDelay + 1.2) + "s";
 			break;
 		case 4: //am
-			paths[i].style.animation = "draw " + (writingTime * 8) + "s linear forwards " + (animDelay + 1.8) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 8) + "s linear forwards " + (animDelay + 1.6) + "s";
 			break;
 		case 5: //i
-			paths[i].style.animation = "draw " + (writingTime * 8) + "s linear forwards " + (animDelay + 2.5) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 8) + "s linear forwards " + (animDelay + 2.3) + "s";
 			break;
 		case 6: //n
-			paths[i].style.animation = "draw " + (writingTime * 8) + "s linear forwards " + (animDelay + 2.8) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 8) + "s linear forwards " + (animDelay + 2.6) + "s";
 			break;
 		case 7: // point du i
-			paths[i].style.animation = "draw " + (writingTime * 10) + "s linear forwards " + (animDelay + 3.2) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 10) + "s linear forwards " + (animDelay + 3.0) + "s";
 			break;
 		case 8: //G
-			paths[i].style.animation = "draw " + (writingTime * 2) + "s linear forwards " + (animDelay + 3.7) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 2) + "s linear forwards " + (animDelay + 3.4) + "s";
 			break;
 		case 9: //.
-			paths[i].style.animation = "draw " + (writingTime * 1) + "s linear forwards " + (animDelay + 4.5) + "s";
+			paths[i].style.animation = "draw " + (writingTime * 1) + "s linear forwards " + (animDelay + 4.2) + "s";
 
-			 //Animates the signature to move to top after its writting animation, and the bricks fades in
+			 //Animates the signature to move to top after its writting animation, and the brick fade-in.
 			setTimeout(function() {
 				let signature = document.querySelector("#signature");
+				let columns = document.querySelectorAll(".column");
 
 				for (let j = 0; j < paths.length; j++) {
 					paths[j].style.strokeWidth = "8";
@@ -54,8 +55,9 @@ for (let i = 0; i < paths.length; i++) {
 				}
 				if (mediaPC.matches) {
 					signature.style.width = "15%";
-					signature.style.top = "70px";
+					signature.style.top = "100px";
 					signature.style.transition = "all 2s ease-in-out";
+					signature.style.filter = "drop-shadow(1px 1px 2px #25160790)";
 				}
 				else if (mediaTablet.matches) {
 					signature.style.width = "35%";
@@ -67,8 +69,15 @@ for (let i = 0; i < paths.length; i++) {
 					signature.style.top = "40px";
 					signature.style.transition = "all 2s ease-in-out";
 				}
-			  }, (animDelay + 5)*1000);
-			break;
+
+				setTimeout(function() {
+					columns.forEach(column => {
+						column.style.opacity = "1"
+						column.style.transition = "all 2s ease-in-out"
+					});
+				},500);
+
+			}, (animDelay + 4.6)*1000);
 
 	}
 	paths[i].style.strokeDasharray = elementLength;
