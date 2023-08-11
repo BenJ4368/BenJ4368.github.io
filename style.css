@@ -98,6 +98,8 @@ body{
 		box-sizing: border-box;
 		margin: 20px;
 		box-shadow: 2px 2px 5px #251607;
+		transform: translate(0, 0px); /* for hover-off replacement */
+		transition: all 0.2s ease; /* for hover-off replacement */
 	}
 	.brick.small {
 		height: 135px;
@@ -107,5 +109,12 @@ body{
 	}
 	.brick.large {
 		height: 415px;
+	}
+
+	.brick:hover{
+		transform: translate(0, -5px);
+		box-shadow: 2px 5px 6px #251607;
+		transition: all 0.2s ease;
+		cursor: pointer;
 	}
 }
