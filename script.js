@@ -47,39 +47,49 @@ for (let i = 0; i < paths.length; i++) {
 			 //Animates the signature to move to top after its writting animation, and the brick fade-in.
 			setTimeout(function() {
 				let signature = document.querySelector("#signature");
-				let columns = document.querySelectorAll(".column");
 
 				for (let j = 0; j < paths.length; j++) {
 					paths[j].style.strokeWidth = "8";
-					paths[j].style.transition = "all 2s ease-in-out"
+					paths[j].style.transition = "all 1.5s ease-in-out"
 				}
 				if (mediaPC.matches) {
 					signature.style.width = "15%";
-					signature.style.top = "100px";
-					signature.style.transition = "all 2s ease-in-out";
-					signature.style.filter = "drop-shadow(1px 1px 2px #25160790)";
+					signature.style.top = "10%";
+					setTimeout(brick_columns_appear, 500);
 				}
 				else if (mediaTablet.matches) {
 					signature.style.width = "35%";
-					signature.style.top = "50px";
-					signature.style.transition = "all 2s ease-in-out";
+					signature.style.top = "13%";
+					setTimeout(brick_columns_appear, 500);
 				}
 				else { // Smartphone screens
-					signature.style.width = "45%";
-					signature.style.top = "40px";
-					signature.style.transition = "all 2s ease-in-out";
+					signature.style.width = "55%";
+					signature.style.top = "8%";
+					setTimeout(brick_rows_appear, 500);
 				}
+				signature.style.filter = "drop-shadow(1px 1px 2px #25160790)";
+				signature.style.transition = "all 1.5s ease-in-out";
 
-				setTimeout(function() {
-					columns.forEach(column => {
-						column.style.opacity = "1"
-						column.style.transition = "all 2s ease-in-out"
-					});
-				},500);
 
 			}, (animDelay + 4.6)*1000);
 
 	}
 	paths[i].style.strokeDasharray = elementLength;
 	paths[i].style.strokeDashoffset = elementLength;
+}
+
+function brick_columns_appear() {
+	let columns = document.querySelectorAll(".column");
+	columns.forEach(column => {
+		column.style.opacity = "1"
+		column.style.transition = "all 1.5s ease-in-out"
+	});
+}
+
+function brick_rows_appear() {
+	let rows = document.querySelectorAll(".row");
+	rows.forEach(row => {
+		row.style.opacity = "1"
+		row.style.transition = "all 1.5s ease-in-out"
+	});
 }

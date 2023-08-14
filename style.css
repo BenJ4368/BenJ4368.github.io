@@ -33,9 +33,10 @@ body{
 	height: fit-content;
 	width: 75%;
 	position: absolute;
-	top: 200px;
+	top: 30%;
 	left: 50%;
 	transform: translate(-50%, 0);
+	filter: drop-shadow(1px 1px 2px #25160799);
 }
 
 #signature path{
@@ -52,18 +53,84 @@ body{
 	}
 }
 
+.media_PC {
+	display: none;
+}
+.media_PHONE {
+	display: flex;
+}
+
+.row {
+	opacity: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 40%;
+}
+
+.brick {
+	width: 135px;
+	background-color: #E0E2DC;
+	border: solid #251607 2px;
+	box-sizing: border-box;
+	margin: 10px;
+	box-shadow: 2px 2px 5px #25160799;
+	transform: translate(0, 0px); /* for hover-off re placement */
+	transition: all 0.2s ease; /* for hover-off re placement */
+}
+.brick.small {
+	height: 65px;
+}
+.brick.medium {
+	height: 135px;
+}
+.brick.large {
+	height: 200px;
+}
+
 /*////////////////*/
 /*//// TABLET ////*/
 /*////////////////*/
 @media (min-width: 768px){
 	
-	#signature{
+	#signature {
 		width: 70%;
-		top: 350px;
+		top: 30%;
 	}
 
-	#signature path{
+	#signature path {
 		stroke-width: 3;
+	}
+
+	.media_PC {
+		display: flex;
+	}
+	.media_PHONE {
+		display: none;
+	}
+
+	.column {
+		opacity: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 40%;
+	}
+
+	.brick {
+		width: 200px;
+		margin: 15px;
+		border: solid #251607 2px;
+		box-shadow: 2px 2px 5px #25160799;
+	}
+	.brick.small {
+		height: 100px;
+	}
+	.brick.medium {
+		height: 200px;
+	}
+	.brick.large {
+		height: 300px;
 	}
 }
 
@@ -73,14 +140,9 @@ body{
 /*////////////////*/
 @media (min-width: 1200px){
 
-	#signature{
+	#signature {
 		width: 40%;
-		top: 300px;
-		filter: drop-shadow(1px 1px 2px #251607);
-	}
-	
-	#signature path{
-		stroke-width: 3;
+		top: 30%;
 	}
 
 	.column {
@@ -88,18 +150,13 @@ body{
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin-top: 200px;
+		margin-top: 20%;
 	}
 	
 	.brick {
 		width: 275px;
-		background-color: #E0E2DC;
-		border: solid #251607 3px;
-		box-sizing: border-box;
 		margin: 20px;
-		box-shadow: 2px 2px 5px #251607;
-		transform: translate(0, 0px); /* for hover-off replacement */
-		transition: all 0.2s ease; /* for hover-off replacement */
+		border: solid #251607 3px;
 	}
 	.brick.small {
 		height: 135px;
@@ -111,9 +168,9 @@ body{
 		height: 415px;
 	}
 
-	.brick:hover{
+	.brick:hover {
 		transform: translate(0, -5px);
-		box-shadow: 2px 5px 6px #251607;
+		box-shadow: 2px 3px 6px #251607dd;
 		transition: all 0.2s ease;
 		cursor: pointer;
 	}
