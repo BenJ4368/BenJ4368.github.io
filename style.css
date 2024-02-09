@@ -11,7 +11,7 @@ font-family: 'Oswald';
 
 
 body{
-	background-color: #E0E2DC;
+	background-color: #eeeeee;
 	position: relative;
 	margin: 0 auto;
 	padding: 0;
@@ -70,7 +70,7 @@ body{
 
 .brick {
 	width: 135px;
-	background-color: #E0E2DC;
+	background-color: #eeeeee;
 	border: solid #251607 2px;
 	box-sizing: border-box;
 	margin: 10px;
