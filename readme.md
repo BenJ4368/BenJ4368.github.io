@@ -9,7 +9,7 @@
 - 🎯 **En recherche active de stages ou d'alternances en cybersécurité**
 - - 📫 Je suis joignable ici : **benjamingaertner.pro@outlook.fr**
 
-- 🔭 Je travaille actuellement sur [**la CyberPiscine**](https://github.com/BenJ4368/CyberPiscine) de [**42Mulhouse**](https://www.42mulhouse.fr/en/)**
+- 🔭 Je travaille actuellement sur [**la CyberPiscine**](https://github.com/BenJ4368/CyberPiscine) de [**42Mulhouse**](https://www.42mulhouse.fr/en/)
 - 🛡️ Passionné par la **sécurité informatique** et la **protection des systemes d'informations**.
 - 🌱 J'apprends en parallele le **Java** et le **DiscordJS** via des projets personnels.
 - ⚡ Fun fact : **Grand joueur de Minecaft et amateur de Cinéma**
