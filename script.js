@@ -1,95 +1,102 @@
-var paths = document.querySelectorAll('#signature path');
-var totalLength = 0;
-var prevElemLength = 0;
-var mediaTablet = window.matchMedia("(min-width: 768px)");
-var mediaPC = window.matchMedia("(min-width: 1200px)");
+const myName = "Benjamin Gaertner";
+const typingAnimDelay = 2000;
+const typingSpeed = 75;
+const output = document.getElementById('name');
 
-for (let i = 0; i < paths.length; i++) {
-	totalLength += paths[i].getTotalLength();
-}
-console.log(`\x1b[35m script.js:7	totalLength: ${totalLength}`)
-
-for (let i = 0; i < paths.length; i++) {
-	let elementLength = paths[i].getTotalLength();
-	let writingTime = (elementLength/totalLength);
-	let animDelay = 1;
-	switch (i) {
-		case 0: //Barre du B
-			paths[i].style.animation = "draw "+ (writingTime * 3) + "s linear forwards " + (animDelay + 0) + "s";
-			break;
-		case 1: // Boucle du B
-			paths[i].style.animation = "draw " + (writingTime * 1.5) + "s linear forwards " + (animDelay + 0.2) + "s";
-			break;
-		case 2: //en
-			paths[i].style.animation = "draw " + (writingTime * 4) + "s linear forwards " + (animDelay + 0.7) + "s";
-			break;
-		case 3: //j
-			paths[i].style.animation = "draw " + (writingTime * 1) + "s linear forwards " + (animDelay + 1.2) + "s";
-			break;
-		case 4: //am
-			paths[i].style.animation = "draw " + (writingTime * 8) + "s linear forwards " + (animDelay + 1.6) + "s";
-			break;
-		case 5: //i
-			paths[i].style.animation = "draw " + (writingTime * 8) + "s linear forwards " + (animDelay + 2.3) + "s";
-			break;
-		case 6: //n
-			paths[i].style.animation = "draw " + (writingTime * 8) + "s linear forwards " + (animDelay + 2.6) + "s";
-			break;
-		case 7: // point du i
-			paths[i].style.animation = "draw " + (writingTime * 10) + "s linear forwards " + (animDelay + 3.0) + "s";
-			break;
-		case 8: //G
-			paths[i].style.animation = "draw " + (writingTime * 2) + "s linear forwards " + (animDelay + 3.4) + "s";
-			break;
-		case 9: //.
-			paths[i].style.animation = "draw " + (writingTime * 1) + "s linear forwards " + (animDelay + 4.2) + "s";
-
-			 //Animates the signature to move to top after its writting animation, and the brick fade-in.
-			setTimeout(function() {
-				let signature = document.querySelector("#signature");
-
-				for (let j = 0; j < paths.length; j++) {
-					paths[j].style.strokeWidth = "8";
-					paths[j].style.transition = "all 1.5s ease-in-out"
-				}
-				if (mediaPC.matches) {
-					signature.style.width = "15%";
-					signature.style.top = "10%";
-					setTimeout(brick_columns_appear, 500);
-				}
-				else if (mediaTablet.matches) {
-					signature.style.width = "35%";
-					signature.style.top = "13%";
-					setTimeout(brick_columns_appear, 500);
-				}
-				else { // Smartphone screens
-					signature.style.width = "55%";
-					signature.style.top = "8%";
-					setTimeout(brick_rows_appear, 500);
-				}
-				signature.style.filter = "drop-shadow(1px 1px 2px #25160790)";
-				signature.style.transition = "all 1.5s ease-in-out";
-
-
-			}, (animDelay + 4.6)*1000);
-
+// Name typing animation
+function typingName(text, i) {
+	if (i < text.length) {
+		output.innerHTML += text.charAt(i);
+		setTimeout(() => typingName(text, i + 1), typingSpeed);
 	}
-	paths[i].style.strokeDasharray = elementLength;
-	paths[i].style.strokeDashoffset = elementLength;
 }
 
-function brick_columns_appear() {
-	let columns = document.querySelectorAll(".column");
-	columns.forEach(column => {
-		column.style.opacity = "1"
-		column.style.transition = "all 1.5s ease-in-out"
-	});
+// Brick appearing animation
+function brickAppreaing() {
+    const bricks = document.querySelectorAll('.brick');
+	
+    bricks.forEach((brick, index) => {
+        // Bricks must be at opacity 0 and sclaled down to 0.8 at the start, from the CSS
+        setTimeout(() => {
+            brick.style.opacity = '1';
+            brick.style.transform = 'scale(1)';
+            brick.style.transition = 'all 0.4s cubic-bezier(0.1, 0.8, 0.3, 1.2)';
+        }, 100 * index);
+    });
 }
 
-function brick_rows_appear() {
-	let rows = document.querySelectorAll(".row");
-	rows.forEach(row => {
-		row.style.opacity = "1"
-		row.style.transition = "all 1.5s ease-in-out"
-	});
+// Brick expanding function
+function brickExpanding() {
+    const grid = document.querySelector('.bento-grid');
+    const bricks = document.querySelectorAll('.brick');
+    
+    bricks.forEach((brick) => {
+
+        brick.addEventListener('click', function(e) {
+            // clicked on close button, do not open the brick
+            if (e.target.classList.contains('close-btn')) return;
+            // if brick isnt already expanded, open it
+            if (!brick.classList.contains('expanded')) {
+                grid.classList.add('has-expanded');
+                brick.classList.add('expanded');
+            }
+        });
+
+        const closeBtn = brick.querySelector('.close-btn');
+        closeBtn.addEventListener('click', function(e) {
+            e.stopPropagation(); // prevent the click event from bubbling up to the brick
+            brick.classList.remove('expanded');
+            grid.classList.remove('has-expanded');
+        });
+    });
 }
+
+// Contact Form handling with EmailJS
+function contactFromHandler() {
+    const btn = document.getElementById('submit-contact');
+    const status = document.getElementById('contact-status');
+    const form = document.getElementById('contact-form');
+
+    form.addEventListener('submit', function(e) {
+        // Get the date and time of sending
+        const now = new Date();
+        const dateStr = now.toLocaleDateString('fr-FR');
+        const timeStr = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+        // Set hidden inputs to the date and time values
+        // Because they are in the form, they will be sent with the email and can be used in the EmailJS template
+        document.getElementById('from-date').value = dateStr;
+        document.getElementById('from-time').value = timeStr;
+
+        e.preventDefault();
+        btn.disabled = true;
+        btn.textContent = 'Envoi en cours...';
+        emailjs.sendForm("contact-portfolio","portfoliomessagetemplate", form)
+            .then(() => {
+                status.textContent = 'Message envoyé avec succès !';
+                status.style.color = 'green';
+                form.reset();
+            })
+            .catch((error) => {
+                status.textContent = 'Erreur lors de l\'envoi du message.';
+                status.style.color = 'red';
+                console.error('EmailJS error:', error);
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.textContent = 'Envoyer';
+            });
+    });
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    output.classList.add('cursor-blink')
+    setTimeout(() => {
+        typingName(myName, 0);
+    }, typingAnimDelay);
+    setTimeout(() => {
+        brickAppreaing();
+        brickExpanding();
+        contactFromHandler();
+    }, typingAnimDelay + myName.length * typingSpeed + 500);
+});

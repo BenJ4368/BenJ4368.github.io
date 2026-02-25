@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contains whole page */
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    scroll-behavior: none;
+    font-family: sans-serif;
+    padding: 0 clamp(20px, 10vw, 150px);
+    /* border: greenyellow 1px solid; */
+}
+
+/* Centered, contains title and grid, limits their width */
+.container {
+    width: 100%;
+    max-width: 1000px;
+    min-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+
+/* Title */
+header h1 {
+    text-align: center;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(1rem, 4vw, 3rem);
+    margin-bottom: 10px;
+    letter-spacing: -2px; 
+}
+
+/* Name (Typing animation in script.js) */
+h2 {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    margin-bottom: 40px;
+}
+#name {
+    border-right: 3px solid #000;
+    white-space: nowrap;
+    padding-right: 5px;
+    display: inline-block;
+}
+
+/* fake cursor blinking animation */
+.cursor-blink {
+    animation: blink 0.7s infinite;
+}
+@keyframes blink {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: #000; }
+}
+
+/* Brick naming, for grid template */
+.brick:nth-child(1) { grid-area: contact; }
+.brick:nth-child(2) { grid-area: formation; }
+.brick:nth-child(3) { grid-area: comp; }
+.brick:nth-child(4) { grid-area: projets; }
+.brick:nth-child(5) { grid-area: exp; }
+.brick:nth-child(6) { grid-area: bio; }
+
+/* Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, minmax(100px, auto)); 
+    gap: 20px;
+    position: relative;
+    grid-template-areas: 
+        "contact    comp    exp"
+        "formation  comp    exp"
+        "formation  projets exp"
+        "formation  projets bio";
+}
+
+/* Bricks */
+.brick {
+    /* before appearing animation*/
+    opacity: 0;
+    transform: scale(0.8);
+    /* brick styling */
+    background: #fff;
+    border: 3px solid #000;
+    text-decoration: none;
+    color: #000;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Brick title */
+.brick .label {
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* Brick content, hidden until expanded*/
+.brick .content {
+    display: none;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Adaptation Mobile */
+@media (max-width: 768px) {
+    /* Contains whole page */
+    body{
+        height: 100vh;
+        overflow: hidden;
+        padding: 0 clamp(10px, 5vw, 75px);
+
+    }
+    /* Contains Title and grid */
+    .container {
+        min-width: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    /* Title */
+    header h1 {
+        font-size: 1.8rem;
+        margin-bottom: -15%;
+    }
+    /* Name */
+    h2{
+        margin: 0;
+    }
+    /* Grid */
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        gap: 10px;
+        width: 100%;
+        grid-template-areas: 
+        "contact    projets"
+        "formation  projets"
+        "formation  exp"
+        "formation  exp"
+        "comp       exp"
+        'comp       bio';
+        height: 70vh
+
+    }
+    /* Brick title */
+    .brick .label {
+        font-size: 0.8rem
+    }
+}
