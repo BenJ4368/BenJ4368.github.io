@@ -4,12 +4,21 @@
     grid-column: 1 / -1;
     grid-row: 1 / -1;
     cursor: default;
-    min-height: 100%;
+    width: 100%;
+    height: 60vh;
+    padding-bottom: 0;
+}
+@media (max-width: 768px) {
+    .brick.expanded {
+        height: 70vh;
+    }
 }
 /* Show brick content when expanded*/
 .brick.expanded .content {
-    display: block;
     opacity: 1;
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 /* Hide label when brick is expanded */
 .brick.expanded > .label {
@@ -31,9 +40,6 @@
     /* border: 1px solid green; */
 }
 .body-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(10px, 2vw, 20px);
     /* border: 1px solid red; */
     height: 80%;
     margin-top: 2rem;
@@ -72,7 +78,7 @@
     color: #fff;
 }
 
-/* CONTACT expanded brick */
+/*! CONTACT */
 .body-content.contact {
    display: flex;
    flex-direction: column;
@@ -82,12 +88,8 @@
 #contact-form {
     width: 100%;
     max-width: 500px;
-    margin: 0;
+    margin: 2.5rem 0 0 0;
     padding: 0;
-}
-.body-content.contact h3 {
-    font-size: clamp(1rem, 4vw, 1.2rem);
-    text-wrap: nowrap;
 }
 .body-content.contact ul,
 .body-content.contact li {
@@ -126,7 +128,7 @@
     font-weight: bold;
     text-transform: uppercase;
 }
-/* CONTACT Adaptation Mobile */
+/* Adaptation Mobile */
 @media (max-width: 768px) {
     .body-content.contact {
         margin: 2rem;
@@ -135,3 +137,30 @@
         max-width: 400px;
     }
 }
+
+
+/*! FORMATION  */
+
+.body-content.formation {
+    overflow-y: scroll;
+    mask-image: linear-gradient(
+        to bottom, 
+        transparent 0%,    /* Début invisible en haut */
+        black 8%,          /* Devient opaque après 8% de la hauteur */
+        black 92%,         /* Reste opaque jusqu'à 92% */
+        transparent 100%   /* Devient invisible à la fin */
+    );
+    height: 80%;
+    padding: 2rem 2rem 0 0;
+    margin: 2rem 0 0 2.5rem;
+    border-left: 3px solid #000;
+}
+.item.formation {
+    position: relative;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    
+}
+
+

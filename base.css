@@ -77,6 +77,8 @@ h2 {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, minmax(100px, auto)); 
     gap: 20px;
+    width: 100%;
+    height: 60vh;
     position: relative;
     grid-template-areas: 
         "contact    comp    exp"
@@ -123,7 +125,7 @@ h2 {
 @media (max-width: 768px) {
     /* Contains whole page */
     body{
-        height: 100vh;
+        height: 100dvh;
         overflow: hidden;
         padding: 0 clamp(10px, 5vw, 75px);
 
@@ -140,6 +142,7 @@ h2 {
     header h1 {
         font-size: 1.8rem;
         margin-bottom: -15%;
+        letter-spacing: 0; 
     }
     /* Name */
     h2{
@@ -150,7 +153,7 @@ h2 {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(6, 1fr);
         gap: 10px;
-        width: 100%;
+        height: 70vh;
         grid-template-areas: 
         "contact    projets"
         "formation  projets"
@@ -158,11 +161,5 @@ h2 {
         "formation  exp"
         "comp       exp"
         'comp       bio';
-        height: 70vh
-
-    }
-    /* Brick title */
-    .brick .label {
-        font-size: 0.8rem
     }
 }
