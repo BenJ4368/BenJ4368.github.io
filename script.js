@@ -1,6 +1,6 @@
 const myName = "Benjamin Gaertner";
-const typingAnimDelay = 0; // 2000
-const typingSpeed = 1; // 75
+const typingAnimDelay = 2000; // 2000
+const typingSpeed = 75; // 75
 const output = document.getElementById('name');
 
 //! Name typing animation
