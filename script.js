@@ -3,7 +3,7 @@ const typingAnimDelay = 0; // 2000
 const typingSpeed = 1; // 75
 const output = document.getElementById('name');
 
-// Name typing animation
+//! Name typing animation
 function typingName(text, i) {
 	if (i < text.length) {
 		output.innerHTML += text.charAt(i);
@@ -11,12 +11,12 @@ function typingName(text, i) {
 	}
 }
 
-// Brick appearing animation
+//! Brick appearing animation
 function brickAppreaing() {
     const bricks = document.querySelectorAll('.brick');
 	
     bricks.forEach((brick, index) => {
-        // Bricks must be at opacity 0 and sclaled down to 0.8 at the start, from the CSS
+        //: Bricks must be at opacity 0 and sclaled down to 0.8 at the start, from the CSS
         setTimeout(() => {
             brick.style.opacity = '1';
             brick.style.transform = 'scale(1)';
@@ -25,7 +25,7 @@ function brickAppreaing() {
     });
 }
 
-// Brick expanding function
+//! Brick expanding function
 function brickExpanding() {
     const grid = document.querySelector('.bento-grid');
     const bricks = document.querySelectorAll('.brick');
@@ -33,9 +33,9 @@ function brickExpanding() {
     bricks.forEach((brick) => {
 
         brick.addEventListener('click', function(e) {
-            // clicked on close button, do not open the brick
+            //: clicked on close button, do not open the brick
             if (e.target.classList.contains('close-btn')) return;
-            // if brick isnt already expanded, open it
+            //: if brick isnt already expanded, open it
             if (!brick.classList.contains('expanded')) {
                 grid.classList.add('has-expanded');
                 brick.classList.add('expanded');
@@ -44,26 +44,27 @@ function brickExpanding() {
 
         const closeBtn = brick.querySelector('.close-btn');
         closeBtn.addEventListener('click', function(e) {
-            e.stopPropagation(); // prevent the click event from bubbling up to the brick
+            //: prevents the click event from bubbling up to the brick
+            e.stopPropagation(); 
             brick.classList.remove('expanded');
             grid.classList.remove('has-expanded');
         });
     });
 }
 
-// Contact Form handling with EmailJS
+//! Contact Form handling with EmailJS
 function contactFromHandler() {
     const btn = document.getElementById('submit-contact');
     const status = document.getElementById('contact-status');
     const form = document.getElementById('contact-form');
 
     form.addEventListener('submit', function(e) {
-        // Get the date and time of sending
+        //: Get the date and time of sending
         const now = new Date();
         const dateStr = now.toLocaleDateString('fr-FR');
         const timeStr = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-        // Set hidden inputs to the date and time values
-        // Because they are in the form, they will be sent with the email and can be used in the EmailJS template
+        //: Set hidden inputs to the date and time values
+        //: Because they are in the form, they will be sent with the email and can be used in the EmailJS template
         document.getElementById('from-date').value = dateStr;
         document.getElementById('from-time').value = timeStr;
 
@@ -87,6 +88,30 @@ function contactFromHandler() {
             });
     });
 }
+
+//! Handles menus in formation brick
+const menuButtons = document.querySelectorAll('button.formation-item-menu');
+menuButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const details = button.nextElementSibling;
+        const arrow = button.querySelector('svg');
+        const isOpen = details.classList.contains('active');
+
+        menuButtons.forEach(btn => {
+            const otherDetails = btn.nextElementSibling;
+            const otherArrow = btn.querySelector('svg');
+            otherDetails.classList.remove('active');
+            otherArrow.classList.remove('active');
+        });
+
+        if (!isOpen) {
+            details.classList.toggle('active');
+            arrow.classList.toggle('active');
+        }
+    });
+});
+
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
