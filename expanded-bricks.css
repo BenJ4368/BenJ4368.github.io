@@ -10,7 +10,7 @@
 }
 @media (max-width: 768px) {
     .brick.expanded {
-        height: 70vh;
+        height: 55vh;
     }
 }
 /* Show brick content when expanded*/
@@ -161,6 +161,7 @@
     background-color: transparent;
     border: none;
     margin: 2rem 0 0 3rem;
+    text-align: left;
 }
 .formation-item-menu svg {
     width: 2rem;
@@ -183,10 +184,10 @@
 }
 .formation-item-details .first-row {
     display: flex;
-    gap: 3rem;
-    font-weight: bold;
-    margin: 0.8rem 0 0.6rem 0;
-    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    gap: 1rem;
+    font-weight: 700;
+    margin: 1rem 0;
+    font-size: clamp(0.8rem, 3vw, 1.2rem);
 }
 .formation-item-details .first-row a svg {
     width: 1rem;
@@ -194,7 +195,7 @@
     transform: translateY(1px);
 }
 .formation-item-details .description {
-    font-size: clamp(0.8rem, 3vw, 1rem);
+    font-size: clamp(0.8rem, 3vw, 1.2rem);
 }
 
 /* Adaptation Mobile */
@@ -204,8 +205,15 @@
         font-size: clamp(0.8rem, 2vw, 1rem);
         margin: 2rem 0;
     }
+    .formation-item-details .first-row {
+        margin-top: -1rem;
+    }
+    .formation-item-menu svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
     .formation-item-details {
-        width: 90%;
+        width: 80%;
     }
 }
 

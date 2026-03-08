@@ -19,7 +19,6 @@ body {
     scroll-behavior: none;
     font-family: sans-serif;
     padding: 0 clamp(20px, 10vw, 150px);
-    /* border: greenyellow 1px solid; */
 }
 
 /* Centered, contains title and grid, limits their width */
@@ -30,7 +29,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* border: 1px solid red; */
 }
 
 /* Title */
@@ -144,21 +142,24 @@ h2 {
         justify-content: space-evenly;
     }
     /* Title */
+    .container {
+        justify-content: flex-start;
+    }
     header h1 {
         font-size: 1.8rem;
-        margin-bottom: -15%;
         letter-spacing: 0; 
+        margin: 4rem 0 0 0;
     }
     /* Name */
     h2{
-        margin: 0;
+        margin-bottom: 5rem;
     }
     /* Grid */
     .bento-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(6, 1fr);
         gap: 10px;
-        height: 70vh;
+        height: 55vh;
         grid-template-areas: 
         "contact    projets"
         "formation  projets"
